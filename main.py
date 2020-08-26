@@ -5,8 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 
 from libs.orm import db
 from user.view import user_bp
-# from website.view import website_bp
-from user.models import USER
+from website.view import website_bp
 
 app = Flask(__name__)
 app.secret_key = r'(uieroih!ivo*he!ui%ggfpo#ghi$o232ibjb)'
@@ -20,7 +19,7 @@ migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
 app.register_blueprint(user_bp)
-# app.register_blueprint(website_bp)
+app.register_blueprint(website_bp)
 
 
 @app.route('/')
@@ -29,5 +28,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.debug = True
     manager.run()

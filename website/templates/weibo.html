@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for web in web %}
+<ul class="list-group">
+      <li class="list-group-item"><strong>标题</strong>：{{ web.title }}</li>
+      <li class="list-group-item"><strong>发送者</strong>：{{ web.username }}</li>
+      <li class="list-group-item"><strong>内容</strong>：{{ web.word }}</li>
+</ul>
+    <a class="btn btn-outline-primary" href="/website/modify?id={{ web.id }}">修改</a>
+    <a class="btn btn-outline-success" href="/website/del?id={{ web.id }}">删除</a>
+<br>
+{% endfor %}
+
+{% endblock %}
